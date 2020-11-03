@@ -9,7 +9,7 @@ import picocli.CommandLine.*
 
 
 @Command(mixinStandardHelpOptions = true)
-abstract class BonitaCommand : Runnable {
+abstract class BonitaCommand {
 
     @Option(names = ["-u", "--username"], required = true)
     lateinit var username: String
@@ -38,7 +38,7 @@ abstract class BonitaCommand : Runnable {
 
     lateinit var spec: Model.CommandSpec
 
-    override fun run() {
+    fun execute(executable: BonitaClient.() -> Any) {
         configureLogger()
 
         val builder = BonitaClient.builder(url)
@@ -56,7 +56,7 @@ abstract class BonitaCommand : Runnable {
         val client = builder.build()
 
         client.login(username, password)
-        execute(client)
+        executable.invoke(client)
         client.logout()
     }
 
@@ -71,6 +71,7 @@ abstract class BonitaCommand : Runnable {
         ctx.configuration.rootLogger.level = level
     }
 
-    abstract fun execute(client: BonitaClient)
+
+
 
 }

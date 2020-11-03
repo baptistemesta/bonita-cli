@@ -2,13 +2,19 @@ package org.bonitasoft.cli
 
 import org.bonitasoft.web.client.BonitaClient
 import picocli.CommandLine
+import picocli.CommandLine.Command
 
 
-@CommandLine.Command(name = "process")
+@Command(name = "process")
 class Processes: BonitaCommand() {
-    override fun execute(client: BonitaClient) {
-        client.processes().searchProcesses(0,100).forEach{
-            println(it)
+
+
+    @Command(name = "list")
+    fun list() {
+        execute {
+            processes().searchProcesses(0, 100).forEach {
+                println(it)
+            }
         }
     }
 
