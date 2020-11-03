@@ -6,6 +6,7 @@ import org.apache.logging.log4j.core.LoggerContext
 import org.bonitasoft.web.client.BonitaClient
 import org.bonitasoft.web.client.log.LogContentLevel
 import picocli.CommandLine.*
+import picocli.CommandLine.Model.CommandSpec
 
 
 @Command(mixinStandardHelpOptions = true)
@@ -35,8 +36,7 @@ abstract class BonitaCommand {
 
 
     @Spec
-
-    lateinit var spec: Model.CommandSpec
+    lateinit var spec: CommandSpec
 
     fun execute(executable: BonitaClient.() -> Any) {
         configureLogger()

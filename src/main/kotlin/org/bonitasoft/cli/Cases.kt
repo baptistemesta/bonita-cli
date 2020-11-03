@@ -7,11 +7,17 @@ import java.util.concurrent.Callable
 
 
 @Command(name = "case")
-class Cases  : Callable<Int> {
-    @Spec
-    var spec: CommandSpec? = null
-    override fun call(): Int {
-        TODO("Not yet implemented")
+class Cases : BonitaCommand() {
+
+
+    @Command(name = "list")
+    fun list() {
+        execute {
+            processes().searchProcesses(0, 100).forEach {
+                println(it)
+            }
+        }
     }
+
 
 }
