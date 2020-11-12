@@ -1,10 +1,11 @@
 package org.bonitasoft.cli
 
 import picocli.CommandLine
+import picocli.CommandLine.Command
 import kotlin.system.exitProcess
 
 
-@CommandLine.Command(name = "bonita", mixinStandardHelpOptions = true, version = ["0.0"],
+@Command(name = "bonita", mixinStandardHelpOptions = true, version = ["0.0"],
         subcommands = [
             Processes::class,
             Cases::class

@@ -16,7 +16,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("info.picocli:picocli:4.5.2")
-    implementation("org.bonitasoft.web:bonita-java-client:0.0.1-SNAPSHOT")
+    implementation("org.bonitasoft.web:bonita-java-client:0.0.1")
     implementation("io.github.microutils:kotlin-logging:1.12.0")
     implementation("org.apache.logging.log4j:log4j-core:2.13.3")
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.13.3")
